@@ -1,6 +1,6 @@
 package com.vinod.petclinic.model;
 
-public class Person {
+public abstract class Person {
 
     private String firstName;
     private String lastName;

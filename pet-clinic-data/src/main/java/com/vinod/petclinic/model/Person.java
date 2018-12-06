@@ -1,6 +1,6 @@
 package com.vinod.petclinic.model;
 
-public abstract class Person {
+public abstract class Person extends BaseEntity {
 
     private String firstName;
     private String lastName;
@@ -20,4 +20,6 @@ public abstract class Person {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+
 }

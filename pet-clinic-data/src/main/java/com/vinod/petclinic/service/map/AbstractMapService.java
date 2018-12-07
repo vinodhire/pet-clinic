@@ -1,13 +1,12 @@
 package com.vinod.petclinic.service.map;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.vinod.petclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<T, ID> {
+import java.util.*;
 
-    protected Map<ID,T> map = new HashMap<>();
+public abstract class AbstractMapService<T extends BaseEntity, ID> {
+
+    protected Map<Long, T> map = new HashMap<>();
 
     public Set<T> findAll() {
         return new HashSet<>(map.values());
@@ -17,10 +16,20 @@ public abstract class AbstractMapService<T, ID> {
         return map.get(id);
     }
 
-    public T save(ID id,T object) {
-        //ID id = generateRandomId();
-        map.put(id,object);
+    public T save(T object) {
+        if (Objects.isNull(object)) {
+            throw new RuntimeException("Cannot save Null Object");
+        }
+        if (Objects.isNull(object.getId())) {
+            object.setId(getNextId());
+        }
+        map.put(object.getId(), object);
         return object;
+    }
+
+    private Long getNextId() {
+        Long id = Collections.max(map.keySet()) + 1;
+        return id;
     }
 
     public void delete(T object) {

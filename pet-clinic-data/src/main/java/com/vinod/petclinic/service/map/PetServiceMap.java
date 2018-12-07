@@ -2,9 +2,11 @@ package com.vinod.petclinic.service.map;
 
 import com.vinod.petclinic.model.Pet;
 import com.vinod.petclinic.service.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetServiceMap extends AbstractMapService<Pet,Long> implements PetService
 {
 

@@ -38,4 +38,11 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements O
         //return map.entrySet().forEach(entry -> entry.getValue().getLastName().equals(lastName));
         return null;
     }
+
+    private boolean validate(Owner owner){
+        // Validate Names
+        // Validate Address and contact details
+        // Validate Pets
+        return false;
+    }
 }

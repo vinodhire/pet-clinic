@@ -25,4 +25,9 @@ public class OwnerController {
         System.out.println("Adding owners to model : "+owners);
         return "owner/index";
     }
+
+    @RequestMapping("/find")
+    public String notImplemented(){
+        return "notimplemented";
+    }
 }

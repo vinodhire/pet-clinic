@@ -19,7 +19,7 @@ public class OwnerController {
     }
 
     @RequestMapping({"","/","/index","/index.html"})
-    public  String list(Model model){
+    public  String listOwners(Model model){
         Set<Owner> owners = ownerService.findAll();
         model.addAttribute("owners",owners);
         System.out.println("Adding owners to model : "+owners);
@@ -27,7 +27,7 @@ public class OwnerController {
     }
 
     @RequestMapping("/find")
-    public String notImplemented(){
+    public String findOwners(){
         return "notimplemented";
     }
 }
